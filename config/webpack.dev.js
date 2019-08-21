@@ -11,7 +11,8 @@ module.exports = {
         publicPath: '/'
     },
     devServer: {
-        contentBase: 'dist'
+        contentBase: 'dist',
+        port: 9000
     },
     module: {
         rules: [
