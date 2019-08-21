@@ -18,6 +18,10 @@
     padding: 1%
 }
 
+#svg-container {
+    width: 100%
+}
+
 .code-template {
     background-color: #F9F9F9;
     width: 100%;
