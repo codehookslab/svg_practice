@@ -11,35 +11,36 @@ let footer = (value) => {
     document.querySelector('#footer').innerHTML = value;
 }
 
-let line = () => {
+let line = ({x1, y1, x2, y2, stroke, strokeWidth}) => {
     var svgLine = document.createElementNS(xmlns, 'line')
-    svgLine.setAttributeNS(null, 'x1', 50);
-    svgLine.setAttributeNS(null, 'y1', 50);
-    svgLine.setAttributeNS(null, 'x2', 750);
-    svgLine.setAttributeNS(null, 'y2', 50);
-    svgLine.setAttributeNS(null, 'stroke', 'red');
-    svgLine.setAttributeNS(null, 'stroke-width', 3);
-
+    svgLine.setAttributeNS(null, 'x1', x1);
+    svgLine.setAttributeNS(null, 'y1', y1);
+    svgLine.setAttributeNS(null, 'x2', x2);
+    svgLine.setAttributeNS(null, 'y2', y2);
+    svgLine.setAttributeNS(null, 'stroke', stroke);
+    svgLine.setAttributeNS(null, 'stroke-width', strokeWidth);
     svgContainer.appendChild(svgLine)
 }
-let index = 0;
-let circle = (value) => {
-    ++index
-    var svgCircle = document.createElementNS(xmlns, 'circle')
-    svgCircle.setAttributeNS(null, 'cx', (value + (50 * index)));
-    svgCircle.setAttributeNS(null, 'cy', 50);
-    svgCircle.setAttributeNS(null, 'r', 15);
-    svgCircle.setAttributeNS(null, 'stroke', 'black');
-    svgCircle.setAttributeNS(null, 'stroke-width', 2);
-    svgCircle.setAttributeNS(null, 'fill', 'white');
 
-    svgContainer.appendChild(svgCircle);
-    text({
-        x: (value + (49 * index)),
-        y: 55,
-        fill: 'red',
-        value: index
-    });
+let circle = ({cx, cy, r, stroke, strokeWidth, fill, value, width}) => {
+    var svgCircle = document.createElementNS(xmlns, 'circle')
+    if(value) {
+        svgCircle.setAttributeNS(null, 'cx',  ((480/width) * (cx+1)));
+        svgCircle.setAttributeNS(null, 'cy', cy);
+        svgCircle.setAttributeNS(null, 'r', r);
+        svgCircle.setAttributeNS(null, 'stroke', stroke);
+        svgCircle.setAttributeNS(null, 'stroke-width', strokeWidth);
+        svgCircle.setAttributeNS(null, 'fill', fill);
+        svgContainer.appendChild(svgCircle);
+        text({
+            x: ((480/width) * (cx+1) - 5),
+            y: (cy + (r/2)),
+            fill: 'red',
+            value: value,
+            dominantBaseline: 'middle',
+            textAnchor: 'central'
+        });
+    }
 }
 
 let text = ({ x, y, fill, value }) => {
