@@ -1,0 +1,25 @@
+{
+  "name": "svg_practice",
+  "version": "1.0.0",
+  "description": "SVG Practice Demo with the help of GSAP and Webpack.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codehookslab/svg_practice.git"
+  },
+  "author": "Vijay Karchi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codehookslab/svg_practice/issues"
+  },
+  "homepage": "https://github.com/codehookslab/svg_practice#readme",
+  "dependencies": {
+    "gsap": "^2.1.3",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
+  }
+}
